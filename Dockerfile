@@ -1,13 +1,15 @@
-FROM alpine:edge
+FROM alpine:3.3
 MAINTAINER Remon Lam [remon@containerstack.io]
 
-ENV STRESS_SYSTEM_FOR 10m
-ENV MAX_CPU_CORES 1
+RUN apk add --update make gcc musl-dev linux-headers && \
+    apk add ca-certificates && \
+    update-ca-certificates && \
+    wget https://launchpad.net/ubuntu/+archive/primary/+files/stress-ng_0.03.12.orig.tar.gz && \
+    tar -xzf stress-ng_0.03.12.orig.tar.gz && \
+    cd stress*/ && \
+    make install && \
+    apk del make gcc musl-dev linux-headers && \
+    rm -rf stress-ng_0.03.12.orig.tar.gz
 
-# add community and testing repo
-COPY stress /
-
-#RUN apk add --no-cache stress@testing tar && \
-#    rm -rf /var/cache/apk/*
-
-CMD stress --cpu $MAX_CPU_CORES --timeout $STRESS_SYSTEM_FOR
+ENTRYPOINT ["/usr/bin/stress-ng"]
+CMD ["--help"]
