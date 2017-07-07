@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM containerstack/alpine
 MAINTAINER Remon Lam [remon@containerstack.io]
 
 RUN apk add --update make gcc musl-dev linux-headers ca-certificates && \
