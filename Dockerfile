@@ -1,4 +1,4 @@
-FROM containerstack/alpine
+FROM containerstack/alpine:latest
 MAINTAINER Remon Lam [remon@containerstack.io]
 
 RUN apk add --update --no-cache make wget gcc musl-dev linux-headers ca-certificates && \
