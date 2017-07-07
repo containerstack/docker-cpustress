@@ -1,4 +1,4 @@
-FROM containerstack/alpine
+FROM alpine:edge
 MAINTAINER Remon Lam [remon@containerstack.io]
 
 ENV STRESS_SYSTEM_FOR 10m
