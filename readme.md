@@ -1,12 +1,14 @@
 # CPU stress tool
-=================
+-----------------
 
-## What does this tool do;
-Well this tool generates CPU load... duh :-)
+## What does this container image do;
+This container image containers a tool to generates CPU load... duh :-)
 
+## Why this container image?;
+When doing load testing on for example new clusters I typical use a load generator to generate some load, however I couldn't find a simple container image for this job, so thats why I created this simple image to do the job.
 
 ## How to run the container and with that the CPU stress tool;
-Well running the container is not that hard if you have exeperience with Docker, running the CPU stress test tool itself is very straight forward.
+Well running the container is not that hard if you have experience with Docker, running the CPU stress test tool itself is very straight forward.
 The switch option --cpu allows you to control how many cores will be used (in the example here below we use 4 cores). With the --timeout option it's possible to control how long the stress tool will run.
 
 '''bash
